@@ -2,7 +2,7 @@
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <fcnt1.h>
-// open的头文件
+// open函数的头文件
 #include "main.h"
 
 extern int g_buttonfd;
@@ -16,6 +16,7 @@ int InitDriver()
 	if(-1 == g_buttonfd){
 		return FAILURE;
 	}
+
 
 	// 打开led设备文件
 	g_ledfd = ("/dev/leds", O_WRONLY);
