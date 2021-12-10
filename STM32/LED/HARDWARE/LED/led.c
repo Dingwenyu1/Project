@@ -21,10 +21,15 @@ void LED_Init(void)
 	
 	// 初始化GPIOB
 	GPIO_Init(GPIOB, &GPIO_InitStructur);
-	GPIO_SetBits(GPIOB, GPIO_Pin_5);
+	// 设置PB5默认情况下不点亮
+	/* setBits函数的本质就是将GPIOx.BSSR位设置为pin， 而GPIO.BSSR位
+	是一个32位寄存器， 将低16位设置位pin5， 也就代表第五位输出高电平 */
+	GPIO_SetBits(GPIOB, GPIO_Pin_5);	
 	
 	// 初始化GPIOE
 	GPIO_Init(GPIOE, &GPIO_InitStructur);
+	// 设置PE5默认情况下不点亮
+	GPIO_SetBits(GPIOE, GPIO_Pin_5);	
 
 }
 
