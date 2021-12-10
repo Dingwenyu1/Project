@@ -3,5 +3,6 @@
 *~
 *.out
 *.swp
+OBJ
 STM32
 test.c
