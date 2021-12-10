@@ -3,4 +3,5 @@
 *~
 *.out
 *.swp
+STM32
 test.c
