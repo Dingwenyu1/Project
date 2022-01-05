@@ -148,14 +148,46 @@ FLAGS1:
 	}else if(service == 0){
 		return 0;
 	}
+
+	return 1;
 }
 
-void GetIn(LInkLI)
+void GetIn(LNode *p)
 {
-	
+	// 获取停车前的时间
+	// time_t类型是一个long类型的变量， 用该变量可以获取系统时间
+	time_t preview_time;
+	// 定义一个tm类型的指针变量p， 用来保存转换后的计时前的时间
+	struct tm *q = NULL;
+	// 调用time函数， 获取计时前的时间
+	preview_time = time(NULL);
+	// 转换函数， 将计时之前的转换成为结构体类型
+	q = localtime(&preview_time);
+	printf("Time counting is started\n");
+	// 定义一个temp变量， 用来暂时保存计时之前的时间
+	struct tm temp;
+	temp.tm_sec = q->tm_sec;
+
+	p->data.time = temp.tm_sec;
 }
 
-void GetOut()
+void GetOut(LNode *p)
 {
+	// 获取当前前的时间
+	// time_t类型是一个long类型的变量， 用该变量可以获取系统时间
+	time_t preview_time;
+	// 定义一个tm类型的指针变量p， 用来保存转换后的计时前的时间
+	struct tm *q = NULL;
+	// 调用time函数， 获取计时前的时间
+	preview_time = time(NULL);
+	// 转换函数， 将计时之前的转换成为结构体类型
+	q = localtime(&preview_time);
+	printf("Time counting is started\n");
+	// 定义一个temp变量， 用来暂时保存计时之前的时间
+	struct tm temp;
+	temp.tm_sec = q->tm_sec;
 
+
+	p->data.time = temp.tm_sec - p->data.time;
+	p->data.money = GetMoney(p->data.type, p->data.time);
 }

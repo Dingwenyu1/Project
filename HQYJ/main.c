@@ -11,12 +11,12 @@ int main(int argc, char const *argv[])
 	while(1){
 		if(GetService() == 1){
 			Car user;
-			InputInformation(user.name, user.plate);
-			GetChoice(&user);
-			user.time = GetTime();
-			user.money = GetMoney(user.type, user.time);
+			InputInformation(p->data.name, p->data.plate);
+			GetChoice(&p->data);
+			GetIn(p);
 		}else{
-			return 0;
+			GetOut(p);
+			GetNode(L);
 		}
 
 	}

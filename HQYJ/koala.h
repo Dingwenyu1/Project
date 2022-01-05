@@ -5,6 +5,7 @@
 #include <time.h>
 #include <string.h>
 #include <stdbool.h>
+#include "LinkList.h"
 
 #define TRUE 1
 #define FALSE 0
@@ -30,6 +31,8 @@ typedef struct Car{
 }Car;
 
 
+void GetOut(LNode *p);
+void GetIn(LNode *p);
 int GetService();
 void PrintInformation(Car user);
 char *s_gets(char *st, int n);
